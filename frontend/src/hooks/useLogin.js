@@ -14,7 +14,7 @@ export function useLogin() {
     mutationFn: async (data) => {
       try {
         const { data: userInfo } = await axios.post(
-          `${BASE_URL}/users/login`,
+          `${BASE_URL}/api/users/login`,
           data,
           {
             withCredentials: true,
