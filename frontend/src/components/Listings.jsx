@@ -17,8 +17,8 @@ function Listings() {
       try {
         const response = await axios.get(
           selectedCategory !== "All"
-            ? `${BASE_URL}/api/listings?category=${selectedCategory}`
-            : `${BASE_URL}/api/listings`,
+            ? `https://dream-nest-3g6w.onrender.com/api/listings?category=${selectedCategory}`
+            : `https://dream-nest-3g6w.onrender.com/api/listings`,
           {
             withCredentials: true,
           }
@@ -56,7 +56,8 @@ function Listings() {
         <Loader />
       ) : (
         <div className="listings">
-          {Array.isArray(listings) && listings.length > 0 ? (
+          {Array.isArray(listings) &&
+            listings.length > 0 &&
             listings.map(
               ({
                 _id,
@@ -84,10 +85,7 @@ function Listings() {
                   booking={booking}
                 />
               )
-            )
-          ) : (
-            <p>No listings found.</p>
-          )}
+            )}
         </div>
       )}
     </>
