@@ -91,7 +91,7 @@ function ListingCard({
           {listingPhotoPaths?.map((photo, index) => (
             <div key={index} className="slide">
               <img
-                src={`http://localhost:3000/${photo?.replace("public", "")}`}
+                src={`${BASE_URL}/${photo?.replace("public", "")}`}
                 alt={`photo ${index + 1}`}
               />
               <div

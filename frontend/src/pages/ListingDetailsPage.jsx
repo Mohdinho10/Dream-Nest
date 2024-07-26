@@ -93,7 +93,7 @@ function ListingDetailsPage() {
           {listing.listingPhotoPaths?.map((item, index) => (
             <img
               key={index}
-              src={`http://localhost:3000/${item.replace("public", "")}`}
+              src={`${BASE_URL}/${item.replace("public", "")}`}
               alt="listing photo"
             />
           ))}

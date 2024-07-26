@@ -6,6 +6,7 @@ import { useUser } from "../context/UserContext";
 import { useLogout } from "../hooks/useLogout";
 import ClipLoader from "react-spinners/ClipLoader";
 import "../styles/Navbar.scss";
+import { BASE_URL } from "../utils/config";
 // import variables from "../styles/variables.scss";
 
 function Navbar() {
@@ -75,7 +76,7 @@ function Navbar() {
             />
           ) : (
             <img
-              src={`http://localhost:3000/${user?.profileImagePath?.replace(
+              src={`${BASE_URL}/${user?.profileImagePath?.replace(
                 "public",
                 ""
               )}`}
