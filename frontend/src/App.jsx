@@ -2,11 +2,12 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { lazy } from "react";
+import { lazy, Suspense } from "react";
 import { UserProvider } from "./context/UserContext";
 import AppLayout from "./components/AppLayout";
 import ProtectedRoutes from "./components/ProtectedRoutes";
 import "react-toastify/dist/ReactToastify.css";
+import SpinnerFullPage from "./components/SpinnerFullPage";
 // Implemented lazy loading
 const HomePage = lazy(() => import("./pages/HomePage"));
 const RegisterPage = lazy(() => import("./pages/RegisterPage"));
@@ -46,45 +47,50 @@ function App() {
       <UserProvider>
         <ReactQueryDevtools initialIsOpen={false} />
         <BrowserRouter>
-          <Routes>
-            <Route element={<AppLayout />}>
-              <Route path="/" element={<HomePage />} />
+          <Suspense fallback={<SpinnerFullPage />}>
+            <Routes>
+              <Route element={<AppLayout />}>
+                <Route path="/" element={<HomePage />} />
 
-              <Route element={<ProtectedRoutes />}>
-                <Route path="/create-listing" element={<CreateListingPage />} />
-                <Route
-                  path="/properties/:listingId"
-                  element={<ListingDetailsPage />}
-                />
-                <Route
-                  path="/properties/category/:category"
-                  element={<CategoryPage />}
-                />
-                <Route
-                  path="/properties/search/:search"
-                  element={<SearchPage />}
-                />
-                <Route path="/:userId/trips" element={<TripListPage />} />
-                <Route path="/:userId/wishList" element={<WishListPage />} />
-                <Route
-                  path="/:userId/properties"
-                  element={<PropertyListPage />}
-                />
-                <Route
-                  path="/:userId/reservations"
-                  element={<ReservationListPage />}
-                />
+                <Route element={<ProtectedRoutes />}>
+                  <Route
+                    path="/create-listing"
+                    element={<CreateListingPage />}
+                  />
+                  <Route
+                    path="/properties/:listingId"
+                    element={<ListingDetailsPage />}
+                  />
+                  <Route
+                    path="/properties/category/:category"
+                    element={<CategoryPage />}
+                  />
+                  <Route
+                    path="/properties/search/:search"
+                    element={<SearchPage />}
+                  />
+                  <Route path="/:userId/trips" element={<TripListPage />} />
+                  <Route path="/:userId/wishList" element={<WishListPage />} />
+                  <Route
+                    path="/:userId/properties"
+                    element={<PropertyListPage />}
+                  />
+                  <Route
+                    path="/:userId/reservations"
+                    element={<ReservationListPage />}
+                  />
+                </Route>
               </Route>
-            </Route>
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/register" element={<RegisterPage />} />
-          </Routes>
-          <ToastContainer
-            position="top-right"
-            autoClose={1000}
-            closeOnClick
-            pauseOnHover={false}
-          />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/register" element={<RegisterPage />} />
+            </Routes>
+            <ToastContainer
+              position="top-right"
+              autoClose={1000}
+              closeOnClick
+              pauseOnHover={false}
+            />
+          </Suspense>
         </BrowserRouter>
       </UserProvider>
     </QueryClientProvider>
