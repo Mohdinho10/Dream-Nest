@@ -56,33 +56,37 @@ function Listings() {
         <Loader />
       ) : (
         <div className="listings">
-          {listings?.map(
-            ({
-              _id,
-              creator,
-              listingPhotoPaths,
-              city,
-              province,
-              country,
-              category,
-              type,
-              price,
-              booking = false,
-            }) => (
-              <ListingCard
-                key={_id}
-                listingId={_id}
-                creator={creator}
-                listingPhotoPaths={listingPhotoPaths}
-                city={city}
-                province={province}
-                country={country}
-                category={category}
-                type={type}
-                price={price}
-                booking={booking}
-              />
+          {Array.isArray(listings) && listings.length > 0 ? (
+            listings.map(
+              ({
+                _id,
+                creator,
+                listingPhotoPaths,
+                city,
+                province,
+                country,
+                category,
+                type,
+                price,
+                booking = false,
+              }) => (
+                <ListingCard
+                  key={_id}
+                  listingId={_id}
+                  creator={creator}
+                  listingPhotoPaths={listingPhotoPaths}
+                  city={city}
+                  province={province}
+                  country={country}
+                  category={category}
+                  type={type}
+                  price={price}
+                  booking={booking}
+                />
+              )
             )
+          ) : (
+            <p>No listings found.</p>
           )}
         </div>
       )}
