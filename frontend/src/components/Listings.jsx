@@ -40,13 +40,13 @@ function Listings() {
         {categories?.map((category, index) => (
           <div
             className={`category ${
-              category.label === selectedCategory ? "selected" : ""
+              category?.label === selectedCategory ? "selected" : ""
             }`}
             key={index}
-            onClick={() => setSelectedCategory(category.label)}
+            onClick={() => setSelectedCategory(category?.label)}
           >
-            <div className="category_icon">{category.icon}</div>
-            <p>{category.label}</p>
+            <div className="category_icon">{category?.icon}</div>
+            <p>{category?.label}</p>
           </div>
         ))}
       </div>
@@ -55,7 +55,7 @@ function Listings() {
         <Loader />
       ) : (
         <div className="listings">
-          {listings.map(
+          {listings?.map(
             ({
               _id,
               creator,
