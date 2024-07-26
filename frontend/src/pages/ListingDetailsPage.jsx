@@ -111,7 +111,7 @@ function ListingDetailsPage() {
 
         <div className="profile">
           <img
-            src={`http://localhost:3000/${listing.creator.profileImagePath.replace(
+            src={`${BASE_URL}/${listing.creator.profileImagePath.replace(
               "public",
               ""
             )}`}
