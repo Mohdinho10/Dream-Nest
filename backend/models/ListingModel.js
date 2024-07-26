@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-// Renamed
+
 const listingSchema = new mongoose.Schema(
   {
     creator: {
