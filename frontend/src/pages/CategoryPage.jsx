@@ -14,7 +14,7 @@ const CategoryPage = () => {
     queryFn: async () => {
       try {
         const response = await axios.get(
-          `${BASE_URL}/properties?category=${category}}`,
+          `${BASE_URL}/api/properties?category=${category}}`,
           {
             withCredentials: true,
           }

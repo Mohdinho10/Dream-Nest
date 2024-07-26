@@ -9,7 +9,7 @@ export function useGetPosts(query) {
       try {
         const params = new URLSearchParams(query);
         const response = await axios.get(
-          `${BASE_URL}/posts?query=${params.toString()}`,
+          `${BASE_URL}/api/posts?query=${params.toString()}`,
           {
             withCredentials: true,
           }

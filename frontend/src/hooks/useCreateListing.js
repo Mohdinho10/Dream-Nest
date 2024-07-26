@@ -11,7 +11,7 @@ export function useCreateListing() {
     mutationFn: async (listData) => {
       try {
         const { data } = await axios.post(
-          `${BASE_URL}/listings/create`,
+          `${BASE_URL}/api/listings/create`,
           listData,
           {
             withCredentials: true,

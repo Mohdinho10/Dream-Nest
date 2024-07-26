@@ -15,7 +15,7 @@ function SearchPage() {
     queryFn: async () => {
       try {
         const response = await axios.get(
-          `${BASE_URL}/listings/search/${search}`,
+          `${BASE_URL}/api/listings/search/${search}`,
 
           {
             withCredentials: true,

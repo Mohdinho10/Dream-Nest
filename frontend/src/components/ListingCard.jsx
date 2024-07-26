@@ -57,7 +57,7 @@ function ListingCard({
       try {
         if (user?._id !== creator._id) {
           const { data } = await axios.patch(
-            `${BASE_URL}/users/${user?._id}/${listingId}`,
+            `${BASE_URL}/api/users/${user?._id}/${listingId}`,
             {},
             { withCredentials: true }
           );

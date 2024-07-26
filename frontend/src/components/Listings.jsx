@@ -17,8 +17,8 @@ function Listings() {
       try {
         const response = await axios.get(
           selectedCategory !== "All"
-            ? `${BASE_URL}/listings?category=${selectedCategory}`
-            : `${BASE_URL}/listings`,
+            ? `${BASE_URL}/api/listings?category=${selectedCategory}`
+            : `${BASE_URL}/api/listings`,
           {
             withCredentials: true,
           }

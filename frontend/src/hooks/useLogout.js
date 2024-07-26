@@ -13,7 +13,7 @@ export function useLogout() {
     mutationFn: async () => {
       try {
         await axios.post(
-          `${BASE_URL}/users/logout`,
+          `${BASE_URL}/api/users/logout`,
           {},
           { withCredentials: true }
         );

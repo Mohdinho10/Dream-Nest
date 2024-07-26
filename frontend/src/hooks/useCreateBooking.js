@@ -8,7 +8,7 @@ export function useCreateBooking() {
     mutationFn: async (bookingData) => {
       try {
         const { data } = await axios.post(
-          `${BASE_URL}/bookings/create`,
+          `${BASE_URL}/api/bookings/create`,
           bookingData,
           {
             withCredentials: true,

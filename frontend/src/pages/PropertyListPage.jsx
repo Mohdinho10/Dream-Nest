@@ -12,7 +12,7 @@ function PropertyListPage() {
     queryFn: async () => {
       try {
         const response = await axios.get(
-          `${BASE_URL}/users/${user._id}/listings`,
+          `${BASE_URL}/api/users/${user._id}/listings`,
 
           {
             withCredentials: true,

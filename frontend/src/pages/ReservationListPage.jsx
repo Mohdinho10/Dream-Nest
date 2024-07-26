@@ -12,7 +12,7 @@ function ReservationListPage() {
     queryFn: async () => {
       try {
         const response = await axios.get(
-          `${BASE_URL}/users/${user._id}/reservations`,
+          `${BASE_URL}/api/users/${user._id}/reservations`,
 
           {
             withCredentials: true,

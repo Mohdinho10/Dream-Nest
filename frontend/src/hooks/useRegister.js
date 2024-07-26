@@ -10,7 +10,7 @@ export function useRegister() {
   const { mutate: register, isPending: isRegister } = useMutation({
     mutationFn: async (data) => {
       try {
-        const res = await axios.post(`${BASE_URL}/users/register`, data, {
+        const res = await axios.post(`${BASE_URL}/api/users/register`, data, {
           withCredentials: true,
         });
         console.log(res);

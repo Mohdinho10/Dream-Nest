@@ -22,9 +22,12 @@ function ListingDetailsPage() {
     queryKey: ["post", listingId],
     queryFn: async () => {
       try {
-        const response = await axios.get(`${BASE_URL}/listings/${listingId}`, {
-          withCredentials: true,
-        });
+        const response = await axios.get(
+          `${BASE_URL}/api/listings/${listingId}`,
+          {
+            withCredentials: true,
+          }
+        );
 
         return response.data;
       } catch (error) {
