@@ -17,8 +17,8 @@ function Listings() {
       try {
         const response = await axios.get(
           selectedCategory !== "All"
-            ? `https://dream-nest-3g6w.onrender.com/api/listings?category=${selectedCategory}`
-            : `https://dream-nest-3g6w.onrender.com/api/listings`,
+            ? `${BASE_URL}/api/listings?category=${selectedCategory}`
+            : `${BASE_URL}/api/listings`,
           {
             withCredentials: true,
           }
