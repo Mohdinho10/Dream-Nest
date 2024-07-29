@@ -49,8 +49,8 @@ app.use("/api/users", userRoutes);
 app.use("/api/bookings", bookingRoutes);
 app.use("/api/listings", listingRoutes);
 
-// app.use(notFound);
-// app.use(errorHandler);
+app.use(notFound);
+app.use(errorHandler);
 
 mongoose
   .connect(process.env.MONGO_URI)
