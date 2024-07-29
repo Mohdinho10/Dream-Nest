@@ -23,6 +23,12 @@ if (process.env.NODE_ENV === "production") {
   app.get("*", (req, res) =>
     res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"))
   );
+} else {
+  const __dirname = path.resolve();
+  app.use("/images", express.static(path.join(__dirname, "images")));
+  app.get("/", (req, res) => {
+    res.send("API is running....");
+  });
 }
 
 // middleware
