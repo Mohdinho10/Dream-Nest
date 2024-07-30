@@ -69,8 +69,8 @@ if (process.env.NODE_ENV === "production") {
   ); // Serve uploads in development
 }
 
-app.use(notFound);
-app.use(errorHandler);
+// app.use(notFound);
+// app.use(errorHandler);
 
 mongoose
   .connect(process.env.MONGO_URI)
