@@ -36,7 +36,8 @@ app.use("/api/listings", listingRoutes);
 // Serve static files
 if (process.env.NODE_ENV === "production") {
   const __dirname = path.resolve();
-  app.use(express.static(path.join(__dirname, "frontend", "dist"))); // Serve frontend build
+  // app.use(express.static(path.join(__dirname, "frontend", "dist"))); // Serve frontend build
+  app.use(express.static(path.join(__dirname, "/frontend/dist")));
   app.use(
     "/uploads",
     express.static(path.join(__dirname, "public", "uploads"))
