@@ -33,22 +33,6 @@ app.use("/api/users", userRoutes);
 app.use("/api/bookings", bookingRoutes);
 app.use("/api/listings", listingRoutes);
 
-// if (process.env.NODE_ENV === "production") {
-//   const __dirname = path.resolve();
-//   app.use(express.static(path.join(__dirname, "/frontend/dist")));
-//   app.use("/uploads", express.static("/var/data/uploads"));
-//   app.use(express.static("public"));
-//   app.get("*", (req, res) =>
-//     res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"))
-//   );
-// } else {
-//   const __dirname = path.resolve();
-//   app.use("/images", express.static(path.join(__dirname, "images")));
-//   app.get("/", (req, res) => {
-//     res.send("API is running....");
-//   });
-// }
-
 // Serve static files
 if (process.env.NODE_ENV === "production") {
   const __dirname = path.resolve();
@@ -69,8 +53,8 @@ if (process.env.NODE_ENV === "production") {
   ); // Serve uploads in development
 }
 
-// app.use(notFound);
-// app.use(errorHandler);
+app.use(notFound);
+app.use(errorHandler);
 
 mongoose
   .connect(process.env.MONGO_URI)
