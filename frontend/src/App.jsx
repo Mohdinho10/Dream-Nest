@@ -7,20 +7,6 @@ import { UserProvider } from "./context/UserContext";
 import AppLayout from "./components/AppLayout";
 import ProtectedRoutes from "./components/ProtectedRoutes";
 import "react-toastify/dist/ReactToastify.css";
-// import SpinnerFullPage from "./components/SpinnerFullPage";
-// Implemented lazy loading
-// const HomePage = lazy(() => import("./pages/HomePage"));
-// const RegisterPage = lazy(() => import("./pages/RegisterPage"));
-// const LoginPage = lazy(() => import("./pages/LoginPage"));
-// const SearchPage = lazy(() => import("./pages/SearchPage"));
-// const CreateListingPage = lazy(() => import("./pages/CreateListingPage"));
-// const ListingDetailsPage = lazy(() => import("./pages/ListingDetailsPage"));
-// const CategoryPage = lazy(() => import("./pages/CategoryPage"));
-// const WishListPage = lazy(() => import("./pages/WishListPage"));
-// const TripListPage = lazy(() => import("./pages/TripListPage"));
-// const PropertyListPage = lazy(() => import("./pages/PropertyListPage"));
-// const ReservationListPage = lazy(() => import("./pages/ReservationListPage"));
-
 import HomePage from "./pages/HomePage";
 import RegisterPage from "./pages/RegisterPage";
 import LoginPage from "./pages/LoginPage";
@@ -54,18 +40,7 @@ function App() {
 
               <Route element={<ProtectedRoutes />}>
                 <Route path="/create-listing" element={<CreateListingPage />} />
-                <Route
-                  path="/properties/:listingId"
-                  element={<ListingDetailsPage />}
-                />
-                <Route
-                  path="/properties/category/:category"
-                  element={<CategoryPage />}
-                />
-                <Route
-                  path="/properties/search/:search"
-                  element={<SearchPage />}
-                />
+
                 <Route path="/:userId/trips" element={<TripListPage />} />
                 <Route path="/:userId/wishList" element={<WishListPage />} />
                 <Route
@@ -77,7 +52,21 @@ function App() {
                   element={<ReservationListPage />}
                 />
               </Route>
+              {/* The following are routes that any user can access them */}
+              <Route
+                path="/properties/:listingId"
+                element={<ListingDetailsPage />}
+              />
+              <Route
+                path="/properties/category/:category"
+                element={<CategoryPage />}
+              />
+              <Route
+                path="/properties/search/:search"
+                element={<SearchPage />}
+              />
             </Route>
+            {/* The following the navbar is not shown till the user is logged in */}
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
           </Routes>

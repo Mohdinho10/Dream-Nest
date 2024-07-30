@@ -11,6 +11,7 @@ import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import "../styles/ListingDetails.scss";
 import Loader from "../components/Loader";
+import { toast } from "react-toastify";
 
 function ListingDetailsPage() {
   const { listingId } = useParams();
@@ -58,10 +59,14 @@ function ListingDetailsPage() {
   const dayCount = Math.round(end - start) / (1000 * 60 * 60 * 24); // Calculate the difference in day unit
 
   /* SUBMIT BOOKING */
-  const customerId = user._id;
+  const customerId = user?._id;
 
   const submitHandler = (e) => {
     e.preventDefault();
+
+    if (!user) {
+      toast.error("You need to be logged in");
+    }
 
     const bookingForm = {
       customerId,

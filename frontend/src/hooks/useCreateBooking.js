@@ -1,5 +1,4 @@
 import { useMutation } from "@tanstack/react-query";
-import { toast } from "react-toastify";
 import { BASE_URL } from "../utils/config";
 import axios from "axios";
 
@@ -17,7 +16,7 @@ export function useCreateBooking() {
         console.log(data);
       } catch (error) {
         console.log(error);
-        toast.error(error.response.data.message);
+        // toast.error(error.response.data.message);
         throw error;
       }
     },

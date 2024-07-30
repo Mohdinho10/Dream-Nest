@@ -61,6 +61,7 @@ export const createListing = asyncHandler(async (req, res) => {
 // Get Listings
 export const getListings = asyncHandler(async (req, res) => {
   const qCategory = req.query.category;
+  console.log(qCategory);
 
   let listings;
   if (qCategory) {
