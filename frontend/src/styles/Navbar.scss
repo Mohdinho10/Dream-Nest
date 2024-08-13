@@ -8,8 +8,15 @@
   align-items: center;
   position: relative;
 
+  .mobile-host {
+    display: none;
+  }
+
   @include sm {
     padding: 10px 20px;
+    .mobile-host {
+      display: block;
+    }
   }
 
   img {
