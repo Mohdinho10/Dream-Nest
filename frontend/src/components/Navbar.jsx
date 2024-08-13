@@ -70,7 +70,7 @@ function Navbar() {
           <Menu
           //   sx={{ color: variables.darkgrey }}
           />
-          {!user ? (
+          {!user?.profileImagePath ? (
             <Person
             // sx={{ color: variables.darkgrey }}
             />

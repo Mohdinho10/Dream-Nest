@@ -96,7 +96,6 @@ function RegisterPage() {
             accept="image/*"
             style={{ display: "none" }}
             onChange={changeHandler}
-            required
           />
           <label htmlFor="image">
             <img src="/assets/addImage.png" alt="add profile photo" />
